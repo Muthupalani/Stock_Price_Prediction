@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>Stock Price Prediction</header>
+    <section>
+        <form id="predictionForm" method="POST" action="/predict">
+            <div>
+                <label for="stock_symbol">Stock Symbol</label><br>
+                <input type="text" id="stock_symbol" name="stock_symbol" placeholder="Enter Stock Symbol (e.g., AAPL)" required>
+            </div>
+            <div>
+                <label for="date_range">Date Range</label><br>
+                <input type="text" id="date_range" name="date_range" placeholder="Enter Date Range (e.g., 2023-01-01 to 2023-12-31)" required>
+            </div>
+            <div>
+                <label for="features">Technical Features</label><br>
+                <input type="text" id="features" name="features" placeholder="Enter Features (e.g., Moving Avg, RSI)" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result">
+            {% if prediction %}
+                <p>Predicted Price: <strong>{{ prediction }}</strong></p>
+            {% endif %}
+        </div>
+    </section>
+</body>
+</html>
+
+
